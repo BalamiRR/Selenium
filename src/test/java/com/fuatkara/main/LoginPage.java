@@ -84,9 +84,8 @@ public class LoginPage {
         driver.quit();
     }
 
-
     @Test
-    public void findErrorFfff(){
+    public void findElement3(){
         // Set location of chromedriver
         System.setProperty("webdriver.chrome.driver","resources/windows/chromedriver.exe");
 
@@ -102,6 +101,33 @@ public class LoginPage {
 
         assertTrue(element.isDisplayed());
         // Quit session (closes browser)
+    }
+
+    @Test
+    public void typesOfLocators(){
+        //Telling the system where to find chromedriver. On Windows you also need to add .exe
+        System.setProperty("webdriver.chrome.driver", "resources/windows/chromedriver.exe");
+
+        //1. Instantiate the driver
+        WebDriver driver = new ChromeDriver();
+
+        //2. navigate to the URL
+        driver.get("https://www.saucedemo.com/");
+
+        //3. Find element
+        WebElement element;
+
+        //ID
+        element = driver.findElement(By.id("user-name"));
+        //Name
+        //driver.findElement(By.name("name of locator"));
+        //Class name
+        driver.findElement(By.className("form_input"));
+        //Tag name
+        driver.findElement(By.tagName("input"));
+        //Css selector
+        driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
+        driver.quit();
     }
 
     @Rule
