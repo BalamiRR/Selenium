@@ -37,7 +37,7 @@ public class LocatingELementsTest {
         //2.navigate to the URL
         driver.get("https://www.saucedemo.com/");
         //3. Find element // 4. check the state
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("user-name")));
         //5. take action //6. record the result
         assertTrue(element.isDisplayed());
@@ -59,7 +59,7 @@ public class LocatingELementsTest {
         driver.findElement(By.tagName("input"));
         //Css selector
         //#user-name
-        driver.findElement(By.cssSelector("#user_name"));
+        driver.findElement(By.cssSelector("#user-name"));
         //Xpath
         // //*[@id="user-name"]
         driver.findElement(By.xpath("//*[@id=\"user-name\"]"));
