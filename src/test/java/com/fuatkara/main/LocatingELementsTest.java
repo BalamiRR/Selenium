@@ -1,16 +1,19 @@
 package com.fuatkara.main;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertTrue;
 
@@ -75,6 +78,35 @@ public class LocatingELementsTest {
         // Partial link text
         driver.findElement(By.partialLinkText("link text!"));
     }
-}
 
+    @Test
+    public void locatorExam(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // 2. navigate to the URL
+        driver.get("https://www.saucedemo.com/");
+
+        //USE CSS Selectors
+        driver.findElement(By.cssSelector("#user-name")).sendKeys("standard_user");
+        driver.findElement(By.cssSelector("[data-test='password']")).sendKeys("secret_sauce");
+        driver.findElement(By.cssSelector(".btn_action")).click();
+
+        //Use CSS/Xpath
+        driver.findElement(By.xpath("//*[@class='btn btn_primary btn_small btn_inventory']")).click();
+        driver.findElement(By.cssSelector("#shopping_cart_container")).click();
+        driver.findElement(By.cssSelector(".btn_action.checkout_button")).click();
+
+        //Use the best locator
+        driver.findElement(By.id("first-name")).sendKeys("first name");
+        driver.findElement(By.id("last-name")).sendKeys("last name");
+        driver.findElement(By.id("postal-code")).sendKeys("zip");
+        driver.findElement(By.cssSelector(".btn_primary.cart_button")).click();
+
+        driver.findElement(By.cssSelector(".btn_medium.cart_button")).click();
+
+        Assert.assertTrue(driver.findElement(By.cssSelector(".btn_primary.btn_small")).isDisplayed());
+    }
+
+
+
+}
 
