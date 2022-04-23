@@ -91,7 +91,9 @@ public class LocatingELementsTest {
         driver.findElement(By.cssSelector(".btn_action")).click();
 
         //Use CSS/Xpath
+        //Here choosing the inventory
         driver.findElement(By.xpath("//*[@class='btn btn_primary btn_small btn_inventory']")).click();
+        //And then clicking on the button
         driver.findElement(By.cssSelector("#shopping_cart_container")).click();
         driver.findElement(By.cssSelector(".btn_action.checkout_button")).click();
 
