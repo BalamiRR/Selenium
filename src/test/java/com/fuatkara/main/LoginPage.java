@@ -103,6 +103,7 @@ public class LoginPage {
         // Quit session (closes browser)
     }
 
+    //1:53:00 da kaldim
     @Test
     public void typesOfLocators(){
         //Telling the system where to find chromedriver. On Windows you also need to add .exe
