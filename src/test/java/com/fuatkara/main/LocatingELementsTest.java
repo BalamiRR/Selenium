@@ -8,13 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.assertTrue;
 
 public class LocatingELementsTest {
@@ -107,8 +104,5 @@ public class LocatingELementsTest {
 
         Assert.assertTrue(driver.findElement(By.cssSelector(".btn_primary.btn_small")).isDisplayed());
     }
-
-
-
 }
 
