@@ -62,4 +62,12 @@ public class WebDriverMethod {
         assertTrue("user1 should appear because we hovered over that image", element.isDisplayed());
     }
 
+    @Test
+    public void rightClick(){
+        driver.navigate().to("https://the-internet.herokuapp.com/context_menu");
+        element = driver.findElement(By.id("hot-spot"));
+        Actions actions = new Actions(driver);
+        actions.contextClick(element).perform();  // contextClick is also rightClick
+        driver.switchTo().alert().accept();
+    }
 }
