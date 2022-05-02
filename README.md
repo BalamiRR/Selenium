@@ -13,4 +13,4 @@ Automation
 * Types of locators in WebDriver
 * Get element information
 * Forward slash and double forward slash in XPath
-* Keyboard actionss
+* Keyboard actionsss
