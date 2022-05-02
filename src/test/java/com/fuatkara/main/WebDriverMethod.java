@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,8 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class WebDriverMethod {
     WebDriver driver;
@@ -68,5 +68,19 @@ public class WebDriverMethod {
         Actions actions = new Actions(driver);
         actions.contextClick(element).perform();  // contextClick is also rightClick
         driver.switchTo().alert().accept();
+    }
+    //3:0:31
+    @Test
+    public void keyPresses(){
+        driver.navigate().to("https://the-internet.herokuapp.com/context_menu");
+        element = driver.findElement(By.id("target")); //elementi id'si target olani bul
+        element.click();
+
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.ARROW_RIGHT).pause(1000).perform();
+
+        element = driver.findElement(By.id("result"));
+        assertEquals("Clicked right arrow key", "You entered: RIGHT", element);
+
     }
 }
