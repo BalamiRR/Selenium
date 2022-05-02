@@ -72,7 +72,7 @@ public class WebDriverMethod {
     //3:0:31
     @Test
     public void keyPresses(){
-        driver.navigate().to("https://the-internet.herokuapp.com/context_menu");
+        driver.navigate().to("https://the-internet.herokuapp.com/key_presses");
         element = driver.findElement(By.id("target")); //elementi id'si target olani bul
         element.click();
 
@@ -80,7 +80,20 @@ public class WebDriverMethod {
         actions.sendKeys(Keys.ARROW_RIGHT).pause(1000).perform();
 
         element = driver.findElement(By.id("result"));
-        assertEquals("Clicked right arrow key", "You entered: RIGHT", element);
+        assertEquals("Click", "You entered: RIGHT", element.getText());
+    }
+
+    @Test
+    public void getCSSValue(){
+        driver.navigate().to("https://ultimateqa.com/simple-html-elements-for-automation/");
+        element = driver.findElement(By.linkText("Clickable Icon"));
+
+        String link = element.getAttribute("href");
+        assertEquals("https://ultimateqa.com/link-success/",link);
+
+        assertEquals("padding-box",element.getCssValue("background-origin"));
 
     }
+
+
 }
